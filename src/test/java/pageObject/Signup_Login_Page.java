@@ -7,7 +7,7 @@ import java.util.Random;
 public class Signup_Login_Page {
 
 
-    public By pSingUp(){
+    public By pSingUp_Banner(){
         return By.xpath("//div[@class='signup-form']/h2");
     }
 
@@ -32,15 +32,15 @@ public class Signup_Login_Page {
         }
     }
 
-    public By pName(){
+    public By pName_input(){
         return By.xpath("//input[@id='name']");
     }
 
-    public By pEmail(){
+    public By pEmail_input(){
         return By.xpath("//input[@id='email']");
     }
 
-    public By pPassword(){
+    public By pPassword_input(){
         return By.xpath("//input[@id='password']");
     }
 

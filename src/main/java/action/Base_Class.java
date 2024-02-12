@@ -4,8 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileInputStream;
 import java.time.Duration;
+import java.util.Properties;
 
 public class Base_Class {
     public WebDriver driver = null;
@@ -48,4 +52,35 @@ public class Base_Class {
             driver.quit();
         }
     }
+
+    public void getIframe(){
+        driver.switchTo().frame(0);
+    }
+
+    public void quitIframe(){
+        driver.switchTo().defaultContent();
+    }
+
+    public  void waitForElementToBeVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        System.out.println(locator + " Is present");
+    }
+
+    public String pRead_Properties_Files(String key){
+        String flag = null;
+        try{
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(System.getProperty("user.dir")+"/GlobalData.properties"));
+            flag = prop.getProperty(key);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+
+    }
+
+
+
 }

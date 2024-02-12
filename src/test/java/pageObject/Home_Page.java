@@ -24,4 +24,8 @@ public class Home_Page {
         return By.xpath("//h2[@data-qa= 'account-deleted']");
     }
 
+    public By pContinue(){
+        return By.xpath("//a[@data-qa= 'continue-button']");
+    }
+
 }
